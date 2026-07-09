@@ -1,0 +1,87 @@
+.header {
+  background: var(--color-warm-white);
+  border-bottom: 1px solid var(--color-linen);
+}
+
+.header__container {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header__logo {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-pill);
+  background: var(--color-soft-cream);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.header__name {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  line-height: 1;
+}
+
+.header__tagline {
+  color: var(--color-stone);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.header__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.header__button {
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-warm-brown);
+  color: var(--color-warm-white);
+  padding: 11px 18px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.header__button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.header__button_secondary {
+  background: transparent;
+  color: var(--color-espresso);
+  border: 1px solid var(--color-linen);
+}
+
+@media (max-width: 640px) {
+  .header__container {
+    min-height: 76px;
+  }
+
+  .header__tagline,
+  .header__button_secondary {
+    display: none;
+  }
+
+  .header__name {
+    font-size: 1.35rem;
+  }
+
+  .header__button {
+    padding: 10px 14px;
+  }
+}
