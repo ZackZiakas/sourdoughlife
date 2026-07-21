@@ -1,5 +1,5 @@
 import "./RecipeSearch.css";
-import recipeTags from "../../utils/recipeTags";
+import recipeTags from "../../data/recipeTags";
 
 function RecipeSearch() {
   return (
