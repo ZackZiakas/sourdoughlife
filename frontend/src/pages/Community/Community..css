@@ -1,0 +1,19 @@
+/* ======================================
+   Placeholder Pages
+====================================== */
+
+.page-section {
+  padding: 80px 0;
+}
+
+.page-section h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-espresso);
+}
+
+.page-section p {
+  margin-top: 16px;
+  color: var(--color-stone);
+  font-size: 1.05rem;
+}
