@@ -1,11 +1,24 @@
+import { useState } from "react";
+import RecipesHero from "../../components/RecipesHero/RecipesHero";
+import RecipeFilters from "../../components/RecipeFilters/RecipeFilters";
 import "./Recipes.css";
 
 function Recipes() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  function handleFilterChange(filter) {
+    setActiveFilter(filter);
+  }
+
   return (
-    <section className="page-section container">
-      <h1>Recipes</h1>
-      <p>Browse sourdough recipes here.</p>
-    </section>
+    <>
+      <RecipesHero />
+
+      <RecipeFilters
+        activeFilter={activeFilter}
+        onFilterChange={handleFilterChange}
+      />
+    </>
   );
 }
 
