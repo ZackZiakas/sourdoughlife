@@ -1,4 +1,5 @@
 const recipeTags = [
+  "All",
   "🥖 Beginner",
   "🍞 Artisan Bread",
   "🧁 Discard",
