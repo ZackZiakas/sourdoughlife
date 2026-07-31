@@ -77,3 +77,12 @@
   outline: 3px solid rgba(111, 78, 55, 0.35);
   outline-offset: 4px;
 }
+.recipe-card {
+  position: relative;
+}
+.recipe-card__favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}

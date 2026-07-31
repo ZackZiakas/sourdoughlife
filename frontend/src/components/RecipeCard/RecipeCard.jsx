@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./RecipeCard.css";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 function RecipeCard({ recipe }) {
   return (
@@ -20,6 +21,21 @@ function RecipeCard({ recipe }) {
             <div className="recipe-card__image-placeholder" />
           )}
         </div>
+        <article className="recipe-card">
+          <FavoriteButton
+            className="recipe-card__favorite"
+            recipeId={recipe.id}
+            recipeTitle={recipe.title}
+          />
+
+          <Link
+            className="recipe-card__link"
+            to={`/recipes/${recipe.id}`}
+            aria-label={`View recipe for ${recipe.title}`}
+          >
+            {/* Existing card content */}
+          </Link>
+        </article>
 
         <div className="recipe-card__content">
           <p className="recipe-card__category">{recipe.category}</p>

@@ -221,6 +221,12 @@
   color: var(--color-text-muted);
   line-height: 1.7;
 }
+.recipe-details__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
 @media screen and (max-width: 900px) {
   .recipe-details__hero-grid,
   .recipe-details__body-grid {
@@ -259,5 +265,10 @@
   .recipe-details__image,
   .recipe-details__image-placeholder {
     min-height: 290px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .recipe-details__title-row {
+    align-items: center;
   }
 }

@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import featuredRecipes from "../../data/featuredRecipes";
 import "./RecipeDetails.css";
+import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 
 function RecipeDetails() {
   const { recipeId } = useParams();
@@ -67,6 +68,11 @@ function RecipeDetails() {
                 <span>Recipe image coming soon</span>
               </div>
             )}
+            <div className="recipe-details__title-row">
+              <h1 className="recipe-details__title">{recipe.title}</h1>
+
+              <FavoriteButton recipeId={recipe.id} recipeTitle={recipe.title} />
+            </div>
           </div>
         </div>
       </section>
