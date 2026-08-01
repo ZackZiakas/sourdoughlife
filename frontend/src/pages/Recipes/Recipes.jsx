@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RecipesHero from "../../components/RecipesHero/RecipesHero";
+import RecipesHero from "../../components/RecipeHero/RecipesHero";
 import RecipeSearch from "../../components/RecipeSearch/RecipeSearch";
 import RecipeFilters from "../../components/RecipeFilters/RecipeFilters";
 import RecipeResults from "../../components/RecipeResults/RecipeResults";

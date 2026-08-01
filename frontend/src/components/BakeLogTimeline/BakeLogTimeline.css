@@ -1,0 +1,83 @@
+/* ======================================
+   Bake Log Timeline
+====================================== */
+
+.bake-log-timeline {
+  padding: 80px 0 110px;
+  background-color: var(--color-soft-cream);
+}
+
+.bake-log-timeline__container {
+  display: grid;
+  gap: 36px;
+}
+
+.bake-log-timeline__heading {
+  max-width: 720px;
+}
+
+.bake-log-timeline__eyebrow {
+  margin: 0 0 10px;
+  color: var(--color-warm-brown);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.bake-log-timeline__title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.bake-log-timeline__description {
+  margin: 16px 0 0;
+  color: var(--color-stone);
+  line-height: 1.8;
+}
+
+.bake-log-timeline__list {
+  display: grid;
+  gap: 22px;
+}
+
+.bake-log-timeline__empty {
+  display: grid;
+  justify-items: center;
+  padding: 64px 24px;
+  border: 1px dashed var(--color-linen);
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+}
+
+.bake-log-timeline__empty-icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-color: #f4e7d8;
+  font-size: 2rem;
+}
+
+.bake-log-timeline__empty-title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+}
+
+.bake-log-timeline__empty-description {
+  margin: 12px 0 0;
+  color: var(--color-stone);
+}
+
+@media screen and (max-width: 600px) {
+  .bake-log-timeline {
+    padding: 58px 0 76px;
+  }
+}

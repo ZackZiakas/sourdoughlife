@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import { useFavorites } from "../../contexts/FavoritesContext";
 import featuredRecipes from "../../data/featuredRecipes";
+import { useBakeLogs } from "../../contexts/BakeLogContext";
 import "./Profile.css";
 
 function Profile() {
   const { favoriteRecipeIds } = useFavorites();
+  const { bakeLogs } = useBakeLogs();
+  const bakeLogCount = bakeLogs.length;
 
   const favoriteRecipes = featuredRecipes.filter((recipe) =>
     favoriteRecipeIds.includes(recipe.id),
@@ -46,7 +49,8 @@ function Profile() {
 
             <article className="profile__summary-card">
               <span className="profile__summary-label">Bake logs</span>
-              <strong className="profile__summary-value">0</strong>
+
+              <strong className="profile__summary-value">{bakeLogCount}</strong>
             </article>
 
             <article className="profile__summary-card">
