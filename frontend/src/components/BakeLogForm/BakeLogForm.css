@@ -135,7 +135,50 @@
   outline: 3px solid rgba(138, 98, 64, 0.3);
   outline-offset: 4px;
 }
+/* ======================================
+   Form Actions
+====================================== */
 
+.bake-log-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.bake-log-form__cancel {
+  min-height: 50px;
+  padding: 0 24px;
+  border: 1px solid var(--color-linen);
+  border-radius: var(--radius-pill);
+  background-color: #ffffff;
+  color: var(--color-espresso);
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bake-log-form__cancel:hover {
+  background-color: var(--color-soft-cream);
+  transform: translateY(-2px);
+}
+
+.bake-log-form__cancel:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.3);
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .bake-log-form__actions {
+    flex-direction: column-reverse;
+  }
+
+  .bake-log-form__cancel,
+  .bake-log-form__submit {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 850px) {
   .bake-log-form-section__container {
     grid-template-columns: 1fr;

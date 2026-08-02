@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useBakeLogs } from "../../contexts/BakeLogContext";
 import featuredRecipes from "../../data/featuredRecipes";
 import "./BakeLogForm.css";
@@ -10,11 +10,33 @@ const initialFormValues = {
   notes: "",
 };
 
-function BakeLogForm() {
-  const { addBakeLog } = useBakeLogs();
+function createFormValuesFromBakeLog(bakeLog) {
+  return {
+    recipeId: String(bakeLog.recipeId),
+    bakeDate: bakeLog.bakeDate,
+    rating: String(bakeLog.rating),
+    notes: bakeLog.notes,
+  };
+}
+
+function BakeLogForm({ editingBakeLog, onCancelEdit, onEditComplete }) {
+  const { addBakeLog, updateBakeLog } = useBakeLogs();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formError, setFormError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+
+  const isEditing = Boolean(editingBakeLog);
+
+  useEffect(() => {
+    if (editingBakeLog) {
+      setFormValues(createFormValuesFromBakeLog(editingBakeLog));
+      setFormError("");
+      setSuccessMessage("");
+      return;
+    }
+
+    setFormValues(initialFormValues);
+  }, [editingBakeLog]);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -26,6 +48,17 @@ function BakeLogForm() {
 
     setFormError("");
     setSuccessMessage("");
+  }
+
+  function resetForm() {
+    setFormValues(initialFormValues);
+    setFormError("");
+  }
+
+  function handleCancel() {
+    resetForm();
+    setSuccessMessage("");
+    onCancelEdit();
   }
 
   function handleSubmit(event) {
@@ -42,15 +75,24 @@ function BakeLogForm() {
       return;
     }
 
-    addBakeLog({
+    const bakeLogData = {
       recipeId: selectedRecipe.id,
       recipeTitle: selectedRecipe.title,
       bakeDate: formValues.bakeDate,
       rating: formValues.rating,
       notes: formValues.notes,
-    });
+    };
 
-    setFormValues(initialFormValues);
+    if (isEditing) {
+      updateBakeLog(editingBakeLog.id, bakeLogData);
+      resetForm();
+      setSuccessMessage("Your bake journal entry has been updated.");
+      onEditComplete();
+      return;
+    }
+
+    addBakeLog(bakeLogData);
+    resetForm();
     setSuccessMessage("Your bake has been added to your journal.");
   }
 
@@ -58,13 +100,18 @@ function BakeLogForm() {
     <section className="bake-log-form-section">
       <div className="bake-log-form-section__container container">
         <div className="bake-log-form-section__heading">
-          <p className="bake-log-form-section__eyebrow">Record a bake</p>
+          <p className="bake-log-form-section__eyebrow">
+            {isEditing ? "Update your journal" : "Record a bake"}
+          </p>
+
           <h2 className="bake-log-form-section__title">
-            What did you bake today?
+            {isEditing ? "Edit your baking notes" : "What did you bake today?"}
           </h2>
+
           <p className="bake-log-form-section__description">
-            Record the recipe, result, and anything you would like to remember
-            for your next bake.
+            {isEditing
+              ? "Update the recipe details, rating, or notes from this bake."
+              : "Record the recipe, result, and anything you would like to remember for your next bake."}
           </p>
         </div>
 
@@ -156,9 +203,21 @@ function BakeLogForm() {
             </p>
           )}
 
-          <button className="bake-log-form__submit" type="submit">
-            Save Bake
-          </button>
+          <div className="bake-log-form__actions">
+            {isEditing && (
+              <button
+                className="bake-log-form__cancel"
+                type="button"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+            )}
+
+            <button className="bake-log-form__submit" type="submit">
+              {isEditing ? "Update Bake" : "Save Bake"}
+            </button>
+          </div>
         </form>
       </div>
     </section>

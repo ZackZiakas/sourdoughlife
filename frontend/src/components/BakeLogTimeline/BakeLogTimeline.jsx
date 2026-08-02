@@ -5,7 +5,7 @@ import BakeLogDetails from "../BakeLogDetails/BakeLogDetails";
 import Modal from "../Modal/Modal";
 import "./BakeLogTimeline.css";
 
-function BakeLogTimeline() {
+function BakeLogTimeline({ onEditBake }) {
   const { bakeLogs, deleteBakeLog } = useBakeLogs();
   const [selectedBakeLog, setSelectedBakeLog] = useState(null);
 
@@ -23,8 +23,12 @@ function BakeLogTimeline() {
   }
 
   function handleEdit() {
-    // Editing will be connected in the next sprint.
-    console.log("Edit bake:", selectedBakeLog);
+    if (!selectedBakeLog) {
+      return;
+    }
+
+    onEditBake(selectedBakeLog);
+    handleCloseDetails();
   }
 
   return (
