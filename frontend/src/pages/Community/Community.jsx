@@ -1,11 +1,15 @@
+import CommunityHero from "../../components/CommunityHero/CommunityHero";
+import CommunityPostForm from "../../components/CommunityPostForm/CommunityPostForm";
+import CommunityFeed from "../../components/CommunityFeed/CommunityFeed";
 import "./Community.css";
 
 function Community() {
   return (
-    <section className="page-section container">
-      <h1>Community</h1>
-      <p>Community bake logs and shared ideas will appear here.</p>
-    </section>
+    <main className="community">
+      <CommunityHero />
+      <CommunityPostForm />
+      <CommunityFeed />
+    </main>
   );
 }
 

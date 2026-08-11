@@ -1,0 +1,131 @@
+/* ======================================
+   Stat Card
+====================================== */
+
+.stat-card {
+  display: flex;
+  min-width: 0;
+  min-height: 190px;
+  flex-direction: column;
+  gap: 28px;
+  padding: 26px;
+  overflow: hidden;
+  border: 1px solid var(--color-linen);
+  border-radius: 22px;
+  background-color: #ffffff;
+  box-shadow: 0 14px 34px rgba(72, 47, 31, 0.07);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(138, 98, 64, 0.28);
+  box-shadow: 0 20px 44px rgba(72, 47, 31, 0.11);
+  transform: translateY(-4px);
+}
+
+/* ======================================
+   Header
+====================================== */
+
+.stat-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.stat-card__label {
+  max-width: 170px;
+  margin: 0;
+  color: var(--color-stone);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.stat-card__icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--color-soft-cream);
+  color: var(--color-warm-brown);
+  font-size: 1.25rem;
+}
+
+/* ======================================
+   Content
+====================================== */
+
+.stat-card__content {
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  min-width: 0;
+  margin-top: auto;
+}
+
+.stat-card__value {
+  max-width: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 2.5vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.stat-card__helper-text {
+  margin: 0;
+  color: var(--color-stone);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* ======================================
+   Variants
+====================================== */
+
+.stat-card_compact-value .stat-card__value {
+  font-size: clamp(1.4rem, 2.1vw, 1.95rem);
+  line-height: 1.15;
+}
+
+.stat-card_featured {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(138, 98, 64, 0.12),
+      transparent 42%
+    ),
+    #ffffff;
+}
+
+/* ======================================
+   Responsive
+====================================== */
+
+@media screen and (max-width: 600px) {
+  .stat-card {
+    min-height: 165px;
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    transition: none;
+  }
+
+  .stat-card:hover {
+    transform: none;
+  }
+}

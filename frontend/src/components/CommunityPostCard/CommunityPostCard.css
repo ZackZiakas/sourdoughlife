@@ -1,0 +1,218 @@
+/* ======================================
+   Community Post Card
+====================================== */
+
+.community-post-card {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid var(--color-linen);
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-soft);
+  animation: community-post-appear 0.28s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.community-post-card:hover {
+  border-color: rgba(138, 98, 64, 0.28);
+  box-shadow: 0 20px 44px rgba(72, 47, 31, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ======================================
+   Header
+====================================== */
+
+.community-post-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.community-post-card__author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.community-post-card__avatar {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-warm-brown);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.community-post-card__author-name {
+  margin: 0;
+  color: var(--color-espresso);
+  font-weight: 800;
+}
+
+.community-post-card__date {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-stone);
+  font-size: 0.84rem;
+}
+
+.community-post-card__owner-label {
+  padding: 7px 11px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-soft-cream);
+  color: var(--color-warm-brown);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ======================================
+   Body
+====================================== */
+
+.community-post-card__body {
+  min-width: 0;
+}
+
+.community-post-card__eyebrow {
+  margin: 0 0 8px;
+  color: var(--color-warm-brown);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.community-post-card__title {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  line-height: 1.1;
+}
+
+.community-post-card__rating {
+  margin-top: 15px;
+}
+
+.community-post-card__content {
+  margin: 20px 0 0;
+  color: var(--color-stone);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ======================================
+   Footer
+====================================== */
+
+.community-post-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-linen);
+}
+
+.community-post-card__like,
+.community-post-card__delete {
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.community-post-card__like {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-linen);
+  background-color: #ffffff;
+  color: var(--color-warm-brown);
+}
+
+.community-post-card__like:hover,
+.community-post-card__like_active {
+  border-color: var(--color-warm-brown);
+  background-color: var(--color-warm-brown);
+  color: #ffffff;
+}
+
+.community-post-card__delete {
+  border: 1px solid #a34a42;
+  background-color: transparent;
+  color: #8b3029;
+}
+
+.community-post-card__delete:hover {
+  background-color: #fff0ed;
+}
+
+.community-post-card__like:hover,
+.community-post-card__delete:hover {
+  transform: translateY(-1px);
+}
+
+.community-post-card__like:focus-visible,
+.community-post-card__delete:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.28);
+  outline-offset: 3px;
+}
+
+@keyframes community-post-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .community-post-card__header,
+  .community-post-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .community-post-card__like,
+  .community-post-card__delete {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .community-post-card {
+    animation: none;
+    transition: none;
+  }
+
+  .community-post-card:hover {
+    transform: none;
+  }
+}

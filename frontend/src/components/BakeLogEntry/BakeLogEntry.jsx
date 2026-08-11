@@ -1,22 +1,13 @@
+import StarRating from "../StarRating/StarRating";
+import { formatDate } from "../../utils/formatDate";
 import "./BakeLogEntry.css";
 
 function BakeLogEntry({ bakeLog, onDelete, onView }) {
-  const formattedDate = new Date(
-    `${bakeLog.bakeDate}T00:00:00`,
-  ).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
-  const filledStars = "★".repeat(bakeLog.rating);
-  const emptyStars = "☆".repeat(5 - bakeLog.rating);
-
   return (
     <article className="bake-log-entry">
       <div className="bake-log-entry__header">
         <div>
-          <p className="bake-log-entry__date">{formattedDate}</p>
+          <p className="bake-log-entry__date">{formatDate(bakeLog.bakeDate)}</p>
 
           <h3 className="bake-log-entry__title">{bakeLog.recipeTitle}</h3>
         </div>
@@ -41,15 +32,11 @@ function BakeLogEntry({ bakeLog, onDelete, onView }) {
         </div>
       </div>
 
-      <p
+      <StarRating
         className="bake-log-entry__rating"
-        aria-label={`${bakeLog.rating} out of 5 stars`}
-      >
-        <span aria-hidden="true">
-          {filledStars}
-          {emptyStars}
-        </span>
-      </p>
+        rating={bakeLog.rating}
+        size="medium"
+      />
 
       <p className="bake-log-entry__notes">{bakeLog.notes}</p>
     </article>

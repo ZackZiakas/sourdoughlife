@@ -1,17 +1,8 @@
+import StarRating from "../StarRating/StarRating";
+import { formatDate } from "../../utils/formatDate";
 import "./BakeLogDetails.css";
 
 function BakeLogDetails({ bakeLog, onEdit, onDelete, onClose }) {
-  const formattedDate = new Date(
-    `${bakeLog.bakeDate}T00:00:00`,
-  ).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
-  const filledStars = "★".repeat(bakeLog.rating);
-  const emptyStars = "☆".repeat(5 - bakeLog.rating);
-
   return (
     <div className="bake-log-details">
       <dl className="bake-log-details__summary">
@@ -22,25 +13,21 @@ function BakeLogDetails({ bakeLog, onEdit, onDelete, onClose }) {
 
         <div className="bake-log-details__summary-item">
           <dt>Bake date</dt>
-          <dd>{formattedDate}</dd>
+          <dd>{formatDate(bakeLog.bakeDate)}</dd>
         </div>
 
         <div className="bake-log-details__summary-item">
           <dt>Rating</dt>
-          <dd
-            className="bake-log-details__rating"
-            aria-label={`${bakeLog.rating} out of 5 stars`}
-          >
-            <span aria-hidden="true">
-              {filledStars}
-              {emptyStars}
-            </span>
+
+          <dd className="bake-log-details__rating">
+            <StarRating rating={bakeLog.rating} showValue size="small" />
           </dd>
         </div>
       </dl>
 
       <section className="bake-log-details__notes">
         <h3 className="bake-log-details__notes-title">Baking notes</h3>
+
         <p className="bake-log-details__notes-text">{bakeLog.notes}</p>
       </section>
 
