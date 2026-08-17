@@ -32,6 +32,7 @@ function BakeLog() {
       <BakeLogHero />
 
       <BakeLogForm
+        key={editingBakeLog?.id ?? "new-bake"}
         editingBakeLog={editingBakeLog}
         onCancelEdit={handleCancelEdit}
         onEditComplete={handleEditComplete}

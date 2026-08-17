@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useBakeLogs } from "../../contexts/BakeLogContext";
 import featuredRecipes from "../../data/featuredRecipes";
 import "./BakeLogForm.css";
@@ -21,22 +21,15 @@ function createFormValuesFromBakeLog(bakeLog) {
 
 function BakeLogForm({ editingBakeLog, onCancelEdit, onEditComplete }) {
   const { addBakeLog, updateBakeLog } = useBakeLogs();
-  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formValues, setFormValues] = useState(() =>
+    editingBakeLog
+      ? createFormValuesFromBakeLog(editingBakeLog)
+      : initialFormValues,
+  );
   const [formError, setFormError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const isEditing = Boolean(editingBakeLog);
-
-  useEffect(() => {
-    if (editingBakeLog) {
-      setFormValues(createFormValuesFromBakeLog(editingBakeLog));
-      setFormError("");
-      setSuccessMessage("");
-      return;
-    }
-
-    setFormValues(initialFormValues);
-  }, [editingBakeLog]);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
