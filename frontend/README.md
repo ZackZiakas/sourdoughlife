@@ -183,7 +183,11 @@ The current frontend version of SourdoughLife is deployed using GitHub Pages.
 
 ## Project Pitch Video
 
-**Video:** Project walkthrough link coming soon.
+**Video:** (https://drive.google.com/file/d/1YsRON9pttIxEZlGvSVUfP32F11PWhkir/view?usp=sharing)
+where I walk through the project, explain my development process, and discuss some of the challenges I faced while building it.
+https://www.loom.com/share/dcfe36fa45444da1aa668fe4e73a7fb4
+
+I added both links here just in case video had any issues with loom.
 
 ## Current Project Status
 
