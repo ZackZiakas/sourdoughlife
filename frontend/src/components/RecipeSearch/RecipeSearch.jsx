@@ -1,8 +1,12 @@
 import "./RecipeSearch.css";
 
-function RecipeSearch({ searchQuery, onSearchChange }) {
+function RecipeSearch({ searchQuery, onSearchChange, onSearchSubmit }) {
   function handleSubmit(event) {
     event.preventDefault();
+
+    if (onSearchSubmit) {
+      onSearchSubmit();
+    }
   }
 
   return (
@@ -32,6 +36,12 @@ function RecipeSearch({ searchQuery, onSearchChange }) {
                 onClick={() => onSearchChange("")}
               >
                 Clear
+              </button>
+            )}
+
+            {onSearchSubmit && (
+              <button className="recipe-search__submit-button" type="submit">
+                Search
               </button>
             )}
           </div>

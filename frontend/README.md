@@ -147,11 +147,7 @@ Install dependencies:
 npm install
 ```
 
-Create a `.env` file inside the `frontend` directory:
-
-```env
-VITE_SPOONACULAR_API_KEY=your_spoonacular_api_key
-```
+The project uses the Spoonacular Food API free tier for recipe search functionality. The API configuration required for project review is included with the Stage 1 frontend.
 
 A Spoonacular API key is required for third-party recipe searching.
 

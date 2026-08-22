@@ -66,6 +66,42 @@
   color: #ffffff;
 }
 
+.recipe-search__submit-button {
+  min-height: 54px;
+  padding: 0 26px;
+  border: 1px solid var(--color-warm-brown);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-warm-brown);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.recipe-search__submit-button:hover {
+  background-color: var(--color-espresso);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.recipe-search__submit-button:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.3);
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 600px) {
+  .recipe-search__input-row {
+    flex-wrap: wrap;
+  }
+
+  .recipe-search__submit-button {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 560px) {
   .recipe-search__input-row {
     flex-direction: column;
