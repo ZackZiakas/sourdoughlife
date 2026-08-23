@@ -1,5 +1,6 @@
 import "./LandingBanner.css";
 import easySourdoughImage from "../../assets/images/easy-sourdough-1.jpg";
+import { Link } from "react-router-dom";
 
 function LandingBanner() {
   return (
@@ -17,9 +18,13 @@ function LandingBanner() {
           </p>
 
           <div className="landing-banner__actions">
-            <button className="btn btn--primary">Browse Recipes</button>
+            <Link className="btn btn--primary" to="/recipes">
+              Browse Recipes
+            </Link>
 
-            <button className="btn btn--secondary">Start Baking</button>
+            <Link className="btn btn--secondary" to="/onboarding">
+              Start Baking
+            </Link>
           </div>
         </div>
 

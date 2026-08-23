@@ -8,6 +8,8 @@ import Community from "./pages/Community/Community";
 import Profile from "./pages/Profile/Profile";
 import Onboarding from "./pages/Onboarding/Onboarding";
 import NotFound from "./pages/NotFound/NotFound";
+import SignIn from "./pages/SignIn/SignIn";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -19,8 +21,16 @@ function App() {
           <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
           <Route path="/bake-log" element={<BakeLog />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/sign-in" element={<SignIn />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

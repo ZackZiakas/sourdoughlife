@@ -1,14 +1,24 @@
 import { useFavorites } from "../../contexts/FavoritesContext";
+import { useAuth } from "../../contexts/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./FavoriteButton.css";
 
 function FavoriteButton({ recipeId, recipeTitle, className = "" }) {
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const recipeIsFavorite = isFavorite(recipeId);
 
   function handleFavoriteClick(event) {
     event.preventDefault();
     event.stopPropagation();
+
+    if (!isAuthenticated) {
+      navigate("/sign-in", { state: { from: location } });
+      return;
+    }
 
     toggleFavorite(recipeId);
   }

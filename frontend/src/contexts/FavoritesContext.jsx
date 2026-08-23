@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
 
 const FavoritesContext = createContext(null);
 
@@ -18,6 +19,7 @@ function getStoredFavorites() {
 }
 
 export function FavoritesProvider({ children }) {
+  const { isAuthenticated } = useAuth();
   const [favoriteRecipeIds, setFavoriteRecipeIds] =
     useState(getStoredFavorites);
 
@@ -53,6 +55,10 @@ export function FavoritesProvider({ children }) {
   }
 
   function toggleFavorite(recipeId) {
+    if (!isAuthenticated) {
+      return;
+    }
+
     if (isFavorite(recipeId)) {
       removeFavorite(recipeId);
     } else {
