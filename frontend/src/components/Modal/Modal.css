@@ -1,0 +1,135 @@
+/* ======================================
+   Modal Overlay
+====================================== */
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background-color: rgba(45, 32, 29, 0.62);
+  backdrop-filter: blur(5px);
+  animation: modal-fade-in 0.2s ease;
+}
+
+/* ======================================
+   Modal Content
+====================================== */
+
+.modal__content {
+  width: min(100%, 680px);
+  max-height: min(85vh, 900px);
+  overflow-y: auto;
+  border: 1px solid var(--color-linen);
+  border-radius: 24px;
+  background-color: var(--color-warm-white);
+  box-shadow: 0 30px 80px rgba(32, 20, 16, 0.3);
+  animation: modal-slide-in 0.22s ease;
+}
+
+.modal__header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--color-linen);
+  background-color: var(--color-warm-white);
+}
+
+.modal__title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.modal__close {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--color-linen);
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--color-espresso);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.modal__close:hover {
+  background-color: var(--color-espresso);
+  color: #ffffff;
+  transform: rotate(4deg);
+}
+
+.modal__close:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.3);
+  outline-offset: 3px;
+}
+
+.modal__body {
+  padding: clamp(24px, 5vw, 38px);
+}
+
+/* ======================================
+   Animations
+====================================== */
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal {
+    align-items: end;
+    padding: 12px;
+  }
+
+  .modal__content {
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 22px 22px 12px 12px;
+  }
+
+  .modal__header {
+    padding: 18px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal__content {
+    animation: none;
+  }
+}

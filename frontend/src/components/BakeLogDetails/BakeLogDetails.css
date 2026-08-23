@@ -1,0 +1,129 @@
+/* ======================================
+   Bake Log Details
+====================================== */
+
+.bake-log-details {
+  display: grid;
+  gap: 30px;
+}
+
+.bake-log-details__summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.bake-log-details__summary-item {
+  padding: 18px;
+  border: 1px solid var(--color-linen);
+  border-radius: 16px;
+  background-color: var(--color-soft-cream);
+}
+
+.bake-log-details__summary-item dt {
+  margin-bottom: 7px;
+  color: var(--color-stone);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bake-log-details__summary-item dd {
+  margin: 0;
+  color: var(--color-espresso);
+  font-weight: 700;
+}
+
+.bake-log-details__rating {
+  color: var(--color-warm-brown);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+}
+
+.bake-log-details__notes {
+  padding: 24px;
+  border: 1px solid var(--color-linen);
+  border-radius: 18px;
+  background-color: #ffffff;
+}
+
+.bake-log-details__notes-title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+}
+
+.bake-log-details__notes-text {
+  margin: 14px 0 0;
+  color: var(--color-stone);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.bake-log-details__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.bake-log-details__button {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bake-log-details__button:hover {
+  transform: translateY(-2px);
+}
+
+.bake-log-details__button_secondary {
+  border: 1px solid var(--color-linen);
+  background-color: #ffffff;
+  color: var(--color-espresso);
+}
+
+.bake-log-details__button_edit {
+  border: 1px solid var(--color-warm-brown);
+  background-color: var(--color-warm-brown);
+  color: #ffffff;
+}
+
+.bake-log-details__button_delete {
+  border: 1px solid #a34a42;
+  background-color: transparent;
+  color: #8b3029;
+}
+
+.bake-log-details__button_delete:hover {
+  background-color: #fff0ed;
+}
+
+.bake-log-details__button:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.3);
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 700px) {
+  .bake-log-details__summary {
+    grid-template-columns: 1fr;
+  }
+
+  .bake-log-details__actions {
+    flex-direction: column-reverse;
+  }
+
+  .bake-log-details__button {
+    width: 100%;
+  }
+}

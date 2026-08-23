@@ -1,0 +1,172 @@
+/* ======================================
+   Bake Log Timeline
+====================================== */
+
+.bake-log-timeline {
+  padding: 80px 0 110px;
+  background-color: var(--color-soft-cream);
+}
+
+.bake-log-timeline__container {
+  display: grid;
+  gap: 36px;
+}
+
+.bake-log-timeline__heading {
+  max-width: 720px;
+}
+
+.bake-log-timeline__eyebrow {
+  margin: 0 0 10px;
+  color: var(--color-warm-brown);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.bake-log-timeline__title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.bake-log-timeline__description {
+  margin: 16px 0 0;
+  color: var(--color-stone);
+  line-height: 1.8;
+}
+
+.bake-log-timeline__list {
+  display: grid;
+  gap: 22px;
+}
+
+.bake-log-timeline__empty {
+  display: grid;
+  justify-items: center;
+  padding: 64px 24px;
+  border: 1px dashed var(--color-linen);
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+}
+
+.bake-log-timeline__empty-icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-color: #f4e7d8;
+  font-size: 2rem;
+}
+
+.bake-log-timeline__empty-title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+}
+
+.bake-log-timeline__empty-description {
+  margin: 12px 0 0;
+  color: var(--color-stone);
+}
+/* ======================================
+   Journal Controls
+====================================== */
+
+.bake-log-timeline__controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.32fr);
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--color-linen);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.74);
+}
+
+.bake-log-timeline__search-group,
+.bake-log-timeline__sort-group {
+  display: grid;
+  gap: 9px;
+}
+
+.bake-log-timeline__label {
+  color: var(--color-espresso);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.bake-log-timeline__search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.bake-log-timeline__search-input,
+.bake-log-timeline__sort-select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 15px;
+  border: 1px solid var(--color-linen);
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: var(--color-espresso);
+  font: inherit;
+}
+
+.bake-log-timeline__search-input:focus,
+.bake-log-timeline__sort-select:focus {
+  border-color: var(--color-warm-brown);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(138, 98, 64, 0.14);
+}
+
+.bake-log-timeline__clear-button,
+.bake-log-timeline__empty-button {
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--color-warm-brown);
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: var(--color-warm-brown);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.bake-log-timeline__clear-button:hover,
+.bake-log-timeline__empty-button:hover {
+  background-color: var(--color-warm-brown);
+  color: #ffffff;
+}
+
+.bake-log-timeline__results-count {
+  margin: 0;
+  color: var(--color-stone);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+@media screen and (max-width: 700px) {
+  .bake-log-timeline {
+    padding: 58px 0 76px;
+  }
+
+  .bake-log-timeline__controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .bake-log-timeline__search-row {
+    flex-direction: column;
+  }
+
+  .bake-log-timeline__clear-button {
+    width: 100%;
+  }
+}

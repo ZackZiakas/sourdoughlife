@@ -1,0 +1,196 @@
+/* ======================================
+   Bake Log Form Section
+====================================== */
+
+.bake-log-form-section {
+  padding: 80px 0;
+  background-color: var(--color-warm-white);
+}
+
+.bake-log-form-section__container {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  align-items: start;
+  gap: clamp(40px, 7vw, 90px);
+}
+
+.bake-log-form-section__eyebrow {
+  margin-bottom: 12px;
+  color: var(--color-warm-brown);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.bake-log-form-section__title {
+  margin: 0;
+  color: var(--color-espresso);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.bake-log-form-section__description {
+  margin-top: 18px;
+  color: var(--color-stone);
+  line-height: 1.8;
+}
+
+/* ======================================
+   Form
+====================================== */
+
+.bake-log-form {
+  display: grid;
+  gap: 22px;
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid var(--color-linen);
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-card);
+}
+
+.bake-log-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.bake-log-form__field {
+  display: grid;
+  gap: 9px;
+}
+
+.bake-log-form__label {
+  color: var(--color-espresso);
+  font-weight: 700;
+}
+
+.bake-log-form__control {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--color-linen);
+  border-radius: 12px;
+  background-color: var(--color-warm-white);
+  color: var(--color-espresso);
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bake-log-form__control:focus {
+  border-color: var(--color-warm-brown);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(138, 98, 64, 0.14);
+}
+
+.bake-log-form__textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.bake-log-form__message {
+  margin: 0;
+  padding: 13px 15px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+.bake-log-form__message_error {
+  background-color: #fff0ed;
+  color: #8b3029;
+}
+
+.bake-log-form__message_success {
+  background-color: #edf5eb;
+  color: #446a40;
+}
+
+.bake-log-form__submit {
+  min-height: 50px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-warm-brown);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bake-log-form__submit:hover {
+  background-color: var(--color-espresso);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.bake-log-form__submit:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.3);
+  outline-offset: 4px;
+}
+/* ======================================
+   Form Actions
+====================================== */
+
+.bake-log-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.bake-log-form__cancel {
+  min-height: 50px;
+  padding: 0 24px;
+  border: 1px solid var(--color-linen);
+  border-radius: var(--radius-pill);
+  background-color: #ffffff;
+  color: var(--color-espresso);
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bake-log-form__cancel:hover {
+  background-color: var(--color-soft-cream);
+  transform: translateY(-2px);
+}
+
+.bake-log-form__cancel:focus-visible {
+  outline: 3px solid rgba(138, 98, 64, 0.3);
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .bake-log-form__actions {
+    flex-direction: column-reverse;
+  }
+
+  .bake-log-form__cancel,
+  .bake-log-form__submit {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .bake-log-form-section__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bake-log-form-section {
+    padding: 58px 0;
+  }
+
+  .bake-log-form__row {
+    grid-template-columns: 1fr;
+  }
+}
