@@ -43,6 +43,7 @@
 
 .header__actions {
   display: flex;
+  flex: 0 0 auto;
   gap: 12px;
 }
 
@@ -65,6 +66,7 @@
 }
 
 .header__button_secondary {
+  display: inline-flex;
   background: transparent;
   color: var(--color-espresso);
   border: 1px solid var(--color-linen);
@@ -87,6 +89,7 @@
 
   .header__brand {
     min-width: 0;
+    flex: 1 1 auto;
     gap: 8px;
   }
 
@@ -104,5 +107,23 @@
   .header__actions {
     gap: 6px;
     flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .header__container {
+    min-height: 0;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .header__brand {
+    flex: 1 1 100%;
+  }
+
+  .header__actions {
+    width: 100%;
+    justify-content: flex-end;
   }
 }
